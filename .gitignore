@@ -1,6 +1,8 @@
 
 #忽略
 **/node_modules/*
+.idea/
+.idea
 node_modules/*
 npm-debug.log
 example/upload-files
@@ -20,7 +22,6 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
-
 # =========================
 # Operating System Files
 # =========================
