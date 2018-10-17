@@ -185,6 +185,7 @@ Text.prototype = {
         // 将回车之后生成的非 <p> 的顶级标签，改为 <p>
         function pHandle(e) {
             const $selectionElem = editor.selection.getSelectionContainerElem()
+            console.log($selectionElem)
             const $parentElem = $selectionElem.parent()
 
             if ($parentElem.html() === '<code><br></code>') {
@@ -194,12 +195,49 @@ Text.prototype = {
                 return
             }
 
+            // 获取标签名
+            const nodeName = $selectionElem.getNodeName()
+
+            console.log(nodeName, $parentElem[0], $selectionElem[0].className)
+
+            // 图片描述位置
+            if (nodeName === 'FIGCAPTION') {
+                const $p = $('<p><br></p>')
+                $p.insertAfter($parentElem)
+                editor.selection.createRangeByElem($p, true)
+                editor.selection.restoreSelection()
+                $selectionElem.remove()
+                e.preventDefault()
+                return
+            }
+
+            // 图片盒子位置
+            if (nodeName === 'FIGURE') {
+                const $p = $('<p></p>')
+                const className = $selectionElem[0].className
+                const $selectionElems = $(document.querySelectorAll('.' + className))
+                $p.insertAfter($selectionElem)
+                editor.selection.createRangeByElem($p, true)
+                editor.selection.restoreSelection()
+
+
+                console.log($selectionElems.get(0))
+
+                // 获取图片说明
+                let $children = $selectionElems.get(1).children().get(1)
+                $selectionElems.get(0).append($children)
+
+                // 删除多余的盒子
+                $selectionElems.get(1).remove()
+                e.preventDefault()
+                return
+            }
+
             if (!$parentElem.equal($textElem)) {
                 // 不是顶级标签
                 return
             }
 
-            const nodeName = $selectionElem.getNodeName()
             if (nodeName === 'P') {
                 // 当前的标签是 P ，不用做处理
                 return

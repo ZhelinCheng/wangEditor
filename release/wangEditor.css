@@ -169,7 +169,6 @@
 }
 
 .w-e-toolbar {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0 5px;
@@ -221,7 +220,6 @@
 }
 .w-e-text-container .w-e-panel-container .w-e-panel-tab-title {
   list-style: none;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   font-size: 14px;
@@ -360,6 +358,20 @@
 .w-e-text pre {
   margin: 10px 0;
   line-height: 1.5;
+}
+.w-e-text figure {
+  font-size: 0;
+  text-align: center;
+}
+.w-e-text figcaption {
+  font-size: 16px;
+}
+.w-e-text figcaption:empty:before {
+  content: attr(placeholder);
+  color: #bbb;
+}
+.w-e-text figcaption:focus:before {
+  content: none;
 }
 .w-e-text ul,
 .w-e-text ol {

@@ -51,8 +51,12 @@ UploadImg.prototype = {
                 return
             }
         }
+        
+        editor.cmd.do('insertHTML', `<figure class="img-box-${new Date().getTime()}">
+            <img src="${link}" style="max-width:100%;" />
+            <figcaption placeholder="添加图片注释（可选）"></figcaption>
+        </figure>`)
 
-        editor.cmd.do('insertHTML', `<img src="${link}" style="max-width:100%;"/>`)
 
         // 验证图片 url 是否有效，无效的话给出提示
         let img = document.createElement('img')

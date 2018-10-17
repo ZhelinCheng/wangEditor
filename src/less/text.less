@@ -17,7 +17,23 @@
         margin: 10px 0;
         line-height: 1.5;
     }
-
+    
+    figure {
+        font-size: 0;
+        text-align: center;
+    }
+    
+    figcaption {
+        font-size: 16px;
+        &:empty:before{
+            content: attr(placeholder);
+            color:#bbb;
+        }
+        &:focus:before{
+            content:none;
+        }
+    }
+    
     ul, ol {
         margin: 10px 0 10px 20px;
     }
