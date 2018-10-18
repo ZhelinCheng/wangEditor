@@ -1,6 +1,5 @@
 // 上传图片事件
 _e(function (E, $) {
-
     E.plugin(function () {
         var editor = this;
         var fns = editor.config.uploadImgFns; // editor.config.uploadImgFns = {} 在config文件中定义了

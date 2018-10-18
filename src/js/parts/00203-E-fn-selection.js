@@ -18,7 +18,7 @@ _e(function (E, $) {
     E.fn.collapseRange = function (range, opt) {
         // opt 参数说明：'start'-折叠到开始; 'end'-折叠到结束
         opt = opt || 'end';
-        opt = opt === 'start' ? true : false;
+        opt = opt === 'start';
 
         range = range || this.currentRange();
         

@@ -1,5 +1,6 @@
 // 定义构造函数
 (function (window, $) {
+    // 哈哈哈哈哈
     if (window.wangEditor) {
         // 重复引用
         alert('一个页面不能重复引用 wangEditor.js 或 wangEditor.min.js ！！！');

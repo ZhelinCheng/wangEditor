@@ -120,11 +120,24 @@ _e(function (E, $) {
             if (!targetElem) {
                 // 没找到合法标签，就去查找 div
                 targetElem = editor.getSelfOrParentByName(rangeElem, 'div');
+
+                var targetImgElem = editor.getSelfOrParentByName(rangeElem, 'figure');
+
+                if (targetImgElem) {
+                    var $targetImgElem = $(targetImgElem);
+                    $targetImgElem.children('figcaption').eq(1).remove();
+                    var $p = editor.$txt.find('p').last();
+                    var p = $p.get(0);
+                    console.log(p);
+                    editor.restoreSelectionByElem(p, 'start');
+                    return;
+                }
+
+
                 if (!targetElem) {
                     return;
                 }
                 $targetElem = $(targetElem);
-
                 if (e.type === 'keydown') {
                     // 异步执行（同步执行会出现问题）
                     $keydownDivElem = $targetElem;

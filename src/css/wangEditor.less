@@ -327,6 +327,25 @@
             font-size: 0.8em;
             border-radius: 3px;
         }
+    
+        figure {
+            font-size: 0;
+            text-align: center;
+        }
+    
+        figcaption {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            &:empty:before{
+                content: attr(placeholder);
+                color:#bbb;
+            }
+            &:focus:before{
+                content:none;
+            }
+        }
     }
 }
 .wangEditor-drop-list {

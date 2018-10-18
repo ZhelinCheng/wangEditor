@@ -43,6 +43,7 @@
     };
 // 定义构造函数
 (function (window, $) {
+    // 哈哈哈哈哈
     if (window.wangEditor) {
         // 重复引用
         alert('一个页面不能重复引用 wangEditor.js 或 wangEditor.min.js ！！！');
@@ -267,7 +268,7 @@ _e(function (E, $) {
     E.fn.collapseRange = function (range, opt) {
         // opt 参数说明：'start'-折叠到开始; 'end'-折叠到结束
         opt = opt || 'end';
-        opt = opt === 'start' ? true : false;
+        opt = opt === 'start';
 
         range = range || this.currentRange();
         
@@ -2283,11 +2284,24 @@ _e(function (E, $) {
             if (!targetElem) {
                 // 没找到合法标签，就去查找 div
                 targetElem = editor.getSelfOrParentByName(rangeElem, 'div');
+
+                var targetImgElem = editor.getSelfOrParentByName(rangeElem, 'figure');
+
+                if (targetImgElem) {
+                    var $targetImgElem = $(targetImgElem);
+                    $targetImgElem.children('figcaption').eq(1).remove();
+                    var $p = editor.$txt.find('p').last();
+                    var p = $p.get(0);
+                    console.log(p);
+                    editor.restoreSelectionByElem(p, 'start');
+                    return;
+                }
+
+
                 if (!targetElem) {
                     return;
                 }
                 $targetElem = $(targetElem);
-
                 if (e.type === 'keydown') {
                     // 异步执行（同步执行会出现问题）
                     $keydownDivElem = $targetElem;
@@ -5389,7 +5403,7 @@ _e(function (E, $) {
                 return;
             }
 
-            var imgHtml = '<img style="max-width:100%;" src="' + url + '"/>';
+            var imgHtml = '<figure class="img-box-'+ new Date().getTime() +'"><img src="'+ url +'" style="max-width:100%;" /><figcaption placeholder="添加图片注释（可选）">11111</figcaption></figure>';
             editor.command(e, 'insertHtml', imgHtml, callback);
         });
     }
@@ -6535,7 +6549,6 @@ _e(function (E, $) {
 });
 // 上传图片事件
 _e(function (E, $) {
-
     E.plugin(function () {
         var editor = this;
         var fns = editor.config.uploadImgFns; // editor.config.uploadImgFns = {} 在config文件中定义了

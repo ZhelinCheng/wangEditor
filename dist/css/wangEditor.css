@@ -271,6 +271,23 @@
   font-size: 0.8em;
   border-radius: 3px;
 }
+.wangEditor-container .wangEditor-txt figure {
+  font-size: 0;
+  text-align: center;
+}
+.wangEditor-container .wangEditor-txt figcaption {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+.wangEditor-container .wangEditor-txt figcaption:empty:before {
+  content: attr(placeholder);
+  color: #bbb;
+}
+.wangEditor-container .wangEditor-txt figcaption:focus:before {
+  content: none;
+}
 .wangEditor-drop-list {
   display: none;
   position: absolute;
