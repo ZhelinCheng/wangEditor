@@ -65,6 +65,8 @@ Editor.prototype = {
         const config = this.config
         const zIndex = config.zIndex
 
+        console.log(textSelector)
+
         // 定义变量
         let $toolbarElem, $textContainerElem, $textElem, $children
 

@@ -4421,6 +4421,8 @@ Editor.prototype = {
         var config$$1 = this.config;
         var zIndex = config$$1.zIndex;
 
+        console.log(textSelector);
+
         // 定义变量
         var $toolbarElem = void 0,
             $textContainerElem = void 0,
