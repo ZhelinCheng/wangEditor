@@ -23,7 +23,7 @@ _e(function (E, $) {
         });
 
         // 添加表情图片的函数
-        function insertEmotionImgs(data, $tabContent) {
+        function insertEmotionImgs(data, $tabContent, title) {
             // 添加表情图片
             $.each(data, function (k, emotion) {
                 var src = emotion.icon || emotion.url;
@@ -31,12 +31,19 @@ _e(function (E, $) {
                 // 通过配置 editor.config.emotionsShow 的值来修改插入到编辑器的内容（图片/value）
                 var commandValue = emotionsShow === 'icon' ? src : value;
                 var $command = $('<a href="#" commandValue="' + commandValue + '"></a>');
-                var $img = $('<img>');
-                $img.attr('_src', src);  // 先将 src 复制到 '_src' 属性，先不加载
 
-                $command.append($img);
+
+                if (/emoji/img.test(title)) {
+                  var $span = $('<span>');
+                  $span.addClass('emoji');
+                  $span.text(value);  // 先将 src 复制到 '_src' 属性，先不加载
+                  $command.append($span);
+                } else {
+                  var $img = $('<img>');
+                  $img.attr('_src', src);  // 先将 src 复制到 '_src' 属性，先不加载
+                  $command.append($img);
+                }
                 $tabContent.append($command);
-
                 // 记录下每一个表情图片的地址
                 editor.emotionUrls.push(src);
             });
@@ -79,7 +86,7 @@ _e(function (E, $) {
                 
             } else if ( Object.prototype.toString.call(data).toLowerCase().indexOf('array') > 0 ) {
                 // 数组，即 data 直接就是表情包数据
-                insertEmotionImgs(data, $tabContent);
+                insertEmotionImgs(data, $tabContent, title);
             } else {
                 // 其他情况，data格式不对
                 E.error('data 数据格式错误，请修改为正确格式，参考文档：' + E.docsite);
@@ -102,6 +109,7 @@ _e(function (E, $) {
 
             if (emotionsShow === 'icon') {
                 // 插入图片
+              console.log(editor.command);
                 editor.command(e, 'InsertImage', commandValue);
             } else {
                 // 插入value

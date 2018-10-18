@@ -162,7 +162,7 @@ _e(function (E, $) {
                 return;
             }
 
-            var imgHtml = '<figure class="img-box-'+ new Date().getTime() +'"><img src="'+ url +'" style="max-width:100%;" /><figcaption placeholder="添加图片注释（可选）">11111</figcaption></figure>';
+            var imgHtml = '<figure class="img-box-'+ new Date().getTime() +'"><img src="'+ url +'" style="max-width:100%;" /><figcaption placeholder="添加图片注释（可选）"></figcaption></figure>';
             editor.command(e, 'insertHtml', imgHtml, callback);
         });
     }

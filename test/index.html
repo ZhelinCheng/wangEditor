@@ -19,7 +19,7 @@
 <body style="padding:0 20px;">
     <p>wangEditor2.0 支持 IE8 浏览器</p>
     <div id="editor-container" class="container">
-        <div id="editor-trigger"><p>请输入内容</p></div>
+        <div id="j-editor"><p>请输入内容</p></div>
         <!-- <textarea id="editor-trigger" style="display:none;">
             <p>请输入内容...</p>
         </textarea> -->
@@ -33,117 +33,265 @@
         // 阻止输出log
         // wangEditor.config.printLog = false;
 
-        var editor = new wangEditor('editor-trigger');
+        var editor = new wangEditor('j-editor')
+        editor.config.menus = [
+          'source',
+          '|',
+          'bold',
+          'underline',
+          'italic',
+          'strikethrough',
+          'eraser',
+          '|',
+          'quote',
+          'fontsize',
+          'head',
+          'unorderlist',
+          'orderlist',
+          'alignleft',
+          'aligncenter',
+          'alignright',
+          '|',
+          'link',
+          'unlink',
+          'emotion',
+          '|',
+          'img',
+          'video',
+          '|',
+          'undo',
+          'redo',
+          'fullscreen'
+        ]
 
-        // 上传图片
-        editor.config.uploadImgUrl = '/upload';
-        editor.config.uploadParams = {
-            // token1: 'abcde',
-            // token2: '12345'
-        };
-        editor.config.uploadHeaders = {
-            // 'Accept' : 'text/x-json'
-        }
-        // editor.config.uploadImgFileName = 'myFileName';
-
-        // 隐藏网络图片
-        // editor.config.hideLinkImg = true;
-
-        // 表情显示项
-        editor.config.emotionsShow = 'value';
         editor.config.emotions = {
-            'default': {
-                title: '默认',
-                data: './emotions.data'
-            },
-            'weibo': {
-                title: '微博表情',
-                data: [
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/7a/shenshou_thumb.gif',
-                        value: '[草泥马]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/60/horse2_thumb.gif',
-                        value: '[神马]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/bc/fuyun_thumb.gif',
-                        value: '[浮云]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/c9/geili_thumb.gif',
-                        value: '[给力]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/f2/wg_thumb.gif',
-                        value: '[围观]'    
-                    },
-                    {
-                        icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/70/vw_thumb.gif',
-                        value: '[威武]'
-                    }
-                ]
+          'emoji': {
+            title: 'emoji表情',
+            data: [{"icon":"https://twemoji.maxcdn.com/2/72x72/1f600.png","value":"😀"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f62c.png","value":"😬"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f601.png","value":"😁"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f602.png","value":"😂"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f923.png","value":"🤣"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f603.png","value":"😃"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f604.png","value":"😄"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f605.png","value":"😅"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f606.png","value":"😆"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f607.png","value":"😇"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f609.png","value":"😉"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f60a.png","value":"😊"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f642.png","value":"🙂"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f643.png","value":"🙃"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f60b.png","value":"😋"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f60c.png","value":"😌"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f60d.png","value":"😍"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f618.png","value":"😘"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f617.png","value":"😗"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f619.png","value":"😙"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f61a.png","value":"😚"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f61c.png","value":"😜"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f92a.png","value":"🤪"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f9d0.png","value":"🧐"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f61d.png","value":"😝"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f61b.png","value":"😛"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f911.png","value":"🤑"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f913.png","value":"🤓"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f60e.png","value":"😎"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f929.png","value":"🤩"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f920.png","value":"🤠"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f917.png","value":"🤗"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f60f.png","value":"😏"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f636.png","value":"😶"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f610.png","value":"😐"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f611.png","value":"😑"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f612.png","value":"😒"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f644.png","value":"🙄"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f914.png","value":"🤔"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f925.png","value":"🤥"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f92d.png","value":"🤭"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f92b.png","value":"🤫"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f92c.png","value":"🤬"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f92f.png","value":"🤯"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f633.png","value":"😳"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f61e.png","value":"😞"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f61f.png","value":"😟"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f620.png","value":"😠"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f621.png","value":"😡"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f614.png","value":"😔"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f615.png","value":"😕"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f641.png","value":"🙁"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f623.png","value":"😣"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f616.png","value":"😖"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f62b.png","value":"😫"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f629.png","value":"😩"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f624.png","value":"😤"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f62e.png","value":"😮"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f631.png","value":"😱"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f628.png","value":"😨"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f630.png","value":"😰"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f62f.png","value":"😯"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f626.png","value":"😦"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f627.png","value":"😧"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f622.png","value":"😢"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f625.png","value":"😥"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f924.png","value":"🤤"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f62a.png","value":"😪"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f613.png","value":"😓"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f62d.png","value":"😭"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f635.png","value":"😵"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f632.png","value":"😲"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f910.png","value":"🤐"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f922.png","value":"🤢"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f927.png","value":"🤧"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f92e.png","value":"🤮"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f637.png","value":"😷"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f912.png","value":"🤒"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f915.png","value":"🤕"},{"icon":"https://twemoji.maxcdn.com/2/72x72/1f634.png","value":"😴"}]
+          },
+          'weibo': {
+            title: '微博表情',  // 组名称
+            data: [{
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/7a/shenshou_thumb.gif',
+              value: '[草泥马]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/60/horse2_thumb.gif',
+              value: '[神马]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/bc/fuyun_thumb.gif',
+              value: '[浮云]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/c9/geili_thumb.gif',
+              value: '[给力]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/f2/wg_thumb.gif',
+              value: '[围观]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/70/vw_thumb.gif',
+              value: '[威武]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/6e/panda_thumb.gif',
+              value: '[熊猫]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/81/rabbit_thumb.gif',
+              value: '[兔子]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/bc/otm_thumb.gif',
+              value: '[奥特曼]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/15/j_thumb.gif',
+              value: '[囧]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/89/hufen_thumb.gif',
+              value: '[互粉]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/c4/liwu_thumb.gif',
+              value: '[礼物]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/ac/smilea_thumb.gif',
+              value: '[呵呵]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/0b/tootha_thumb.gif',
+              value: '[嘻嘻]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/6a/laugh.gif',
+              value: '[哈哈]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/14/tza_thumb.gif',
+              value: '[可爱]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/af/kl_thumb.gif',
+              value: '[可怜]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/a0/kbsa_thumb.gif',
+              value: '[挖鼻屎]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/f4/cj_thumb.gif',
+              value: '[吃惊]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/6e/shamea_thumb.gif',
+              value: '[害羞]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/c3/zy_thumb.gif',
+              value: '[挤眼]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/29/bz_thumb.gif',
+              value: '[闭嘴]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/71/bs2_thumb.gif',
+              value: '[鄙视]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/6d/lovea_thumb.gif',
+              value: '[爱你]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/9d/sada_thumb.gif',
+              value: '[泪]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/19/heia_thumb.gif',
+              value: '[偷笑]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/8f/qq_thumb.gif',
+              value: '[亲亲]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/b6/sb_thumb.gif',
+              value: '[生病]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/58/mb_thumb.gif',
+              value: '[太开心]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/17/ldln_thumb.gif',
+              value: '[懒得理你]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/98/yhh_thumb.gif',
+              value: '[右哼哼]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/6d/zhh_thumb.gif',
+              value: '[左哼哼]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/a6/x_thumb.gif',
+              value: '[嘘]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/af/cry.gif',
+              value: '[衰]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/73/wq_thumb.gif',
+              value: '[委屈]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/9e/t_thumb.gif',
+              value: '[吐]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/f3/k_thumb.gif',
+              value: '[打哈欠]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/27/bba_thumb.gif',
+              value: '[抱抱]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/7c/angrya_thumb.gif',
+              value: '[怒]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/5c/yw_thumb.gif',
+              value: '[疑问]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/a5/cza_thumb.gif',
+              value: '[馋嘴]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/70/88_thumb.gif',
+              value: '[拜拜]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/e9/sk_thumb.gif',
+              value: '[思考]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/24/sweata_thumb.gif',
+              value: '[汗]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/7f/sleepya_thumb.gif',
+              value: '[困]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/6b/sleepa_thumb.gif',
+              value: '[睡觉]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/90/money_thumb.gif',
+              value: '[钱]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/0c/sw_thumb.gif',
+              value: '[失望]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/40/cool_thumb.gif',
+              value: '[酷]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/8c/hsa_thumb.gif',
+              value: '[花心]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/49/hatea_thumb.gif',
+              value: '[哼]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/36/gza_thumb.gif',
+              value: '[鼓掌]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/d9/dizzya_thumb.gif',
+              value: '[晕]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/1a/bs_thumb.gif',
+              value: '[悲伤]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/62/crazya_thumb.gif',
+              value: '[抓狂]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/91/h_thumb.gif',
+              value: '[黑线]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/6d/yx_thumb.gif',
+              value: '[阴险]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/89/nm_thumb.gif',
+              value: '[怒骂]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/40/hearta_thumb.gif',
+              value: '[心]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/ea/unheart.gif',
+              value: '[伤心]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/58/pig.gif',
+              value: '[猪头]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/d6/ok_thumb.gif',
+              value: '[ok]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/d9/ye_thumb.gif',
+              value: '[耶]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/d8/good_thumb.gif',
+              value: '[good]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/c7/no_thumb.gif',
+              value: '[不要]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/d0/z2_thumb.gif',
+              value: '[赞]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/40/come_thumb.gif',
+              value: '[来]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/d8/sad_thumb.gif',
+              value: '[弱]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/91/lazu_thumb.gif',
+              value: '[蜡烛]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/6a/cake.gif',
+              value: '[蛋糕]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/d3/clock_thumb.gif',
+              value: '[钟]'
+            }, {
+              icon: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/1b/m_thumb.gif',
+              value: '[话筒]'
             }
-        };
-
-        // 插入代码时的默认语言
-        // editor.config.codeDefaultLang = 'html'
-
-        // 只粘贴纯文本
-        // editor.config.pasteText = true;
-
-        // 跨域上传
-        // editor.config.uploadImgUrl = 'http://localhost:8012/upload';
-
-        // 第三方上传
-        // editor.config.customUpload = true;
-
-        // 普通菜单配置
-        // editor.config.menus = [
-        //     'img',
-        //     'insertcode',
-        //     'eraser',
-        //     'fullscreen'
-        // ];
-        // 只排除某几个菜单（兼容IE低版本，不支持ES5的浏览器），支持ES5的浏览器可直接用 [].map 方法
-        // editor.config.menus = $.map(wangEditor.config.menus, function(item, key) {
-        //     if (item === 'insertcode') {
-        //         return null;
-        //     }
-        //     if (item === 'fullscreen') {
-        //         return null;
-        //     }
-        //     return item;
-        // });
-
-        // onchange 事件
-        editor.onchange = function () {
-            console.log(this.$txt.html());
-        };
-
-        // 取消过滤js
-        // editor.config.jsFilter = false;
-
-        // 取消粘贴过来
-        // editor.config.pasteFilter = false;
-
-        // 设置 z-index
-        // editor.config.zindex = 20000;
-
-        // 语言
-        // editor.config.lang = wangEditor.langs['en'];
-
-        // 自定义菜单UI
-        // editor.UI.menus.bold = {
-        //     normal: '<button style="font-size:20px; margin-top:5px;">B</button>',
-        //     selected: '.selected'
-        // };
-        // editor.UI.menus.italic = {
-        //     normal: '<button style="font-size:20px; margin-top:5px;">I</button>',
-        //     selected: '<button style="font-size:20px; margin-top:5px;"><i>I</i></button>'
-        // };
-        editor.create();
+            ]
+          }
+        }
+        editor.create()
     </script>
 </body>
 </html>
