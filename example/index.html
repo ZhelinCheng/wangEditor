@@ -13,6 +13,7 @@
 <body>
     <div class="body">
         <p>可访问 <a href="http://www.wangeditor.com/" target="_blank">wangEditor 官网</a> 了解更多内容</p>
+        <div id="tools"></div>
         <div id="div1">
             <figure class="img-box-1539755884901">
                 <img src="https://zhelin.me/content/images/2018/05/holger-link-652805-unsplash.jpg" style="max-width:100%;">
@@ -57,9 +58,40 @@
     <!-- 引用js -->
     <script type="text/javascript" src="/wangEditor.js"></script>
     <script type="text/javascript">
-        var E = window.wangEditor
-        var editor = new E('#div1')
-        editor.create()
+      var E = window.wangEditor
+      var editor1 = new E('#tools', '#div1')
+      editor1.customConfig.debug = true
+      editor1.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        'backColor',  // 背景颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+        'quote',  // 引用
+        'emoticon',  // 表情
+        'image',  // 插入图片
+        'table',  // 表格
+        'video',  // 插入视频
+        'undo',  // 撤销
+        'redo'  // 重复
+      ]
+      editor1.customConfig.emotions = [
+        {
+          // tab 的标题
+          title: 'emoji',
+          // type -> 'emoji' / 'image'
+          type: 'emoji',
+          // content -> 数组
+          content: '😀 😃 😄 😁 😆 😅 😂 😊 😇 🙂 🙃 😉 😌 😍 😘 😗 😙 😚 😋 😜 😝 😛 🤑 🤗 🤓 😎 😏 😒 😞 😔 😟 😕 🙁  😣 😖 😫 😩 😤 😠 😡 😶 😐 😑 😯 😦 😧 😮 😲 😵 😳 😱 😨 😰 😢 😥 😭 😓 😪 😴 🙄 🤔 😬 🤐'.split(/\s/)
+        }
+      ]
+
+      editor1.create()
     </script>
 </body>
 </html>
