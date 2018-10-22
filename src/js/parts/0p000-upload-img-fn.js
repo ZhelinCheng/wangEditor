@@ -18,10 +18,16 @@ _e(function (E, $) {
             } else {
                 E.log('上传成功，即将插入编辑区域，结果为：' + resultText);
 
+                if (window.layer) {
+                  window.layer.msg('上传成功！');
+                }
+
+                resultText = JSON.parse(resultText);
+
                 // 将结果插入编辑器
                 img = document.createElement('img');
                 img.onload = function () {
-                    var html = '<img src="' + resultText + '" alt="' + originalName + '" style="max-width:100%;"/>';
+                    var html = '<figure class="img-box-'+ new Date().getTime() +'"><img src="' + resultText.data.img_url + '" alt="' + originalName + '" style="max-width:100%;"/><figcaption placeholder="添加图片注释（可选）"></figcaption></figure>';
                     editor.command(null, 'insertHtml', html);
 
                     E.log('已插入图片，地址 ' + resultText);
@@ -31,7 +37,7 @@ _e(function (E, $) {
                     E.error('使用返回的结果获取图片，发生错误。请确认以下结果是否正确：' + resultText);
                     img = null;
                 };
-                img.src = resultText;
+                img.src = resultText.data.img_url;
             }
 
         });

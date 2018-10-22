@@ -117,22 +117,29 @@ _e(function (E, $) {
             var $targetElem;
             var $pElem;
 
+
+            var divElem = $(targetElem).children('div');
+            if (divElem.prev('ol').length > 0 || divElem.prev('ul').length > 0) {
+              divElem.remove();
+              var $pLast = editor.$txt.find('p').last();
+              var pLast = $pLast.get(0);
+              editor.restoreSelectionByElem(pLast, 'start');
+            }
+
             if (!targetElem) {
                 // 没找到合法标签，就去查找 div
                 targetElem = editor.getSelfOrParentByName(rangeElem, 'div');
 
                 var targetImgElem = editor.getSelfOrParentByName(rangeElem, 'figure');
 
-                if (targetImgElem) {
+                if (targetImgElem && e.type === 'keydown') {
                     var $targetImgElem = $(targetImgElem);
                     $targetImgElem.children('figcaption').eq(1).remove();
                     var $p = editor.$txt.find('p').last();
                     var p = $p.get(0);
-                    console.log(p);
                     editor.restoreSelectionByElem(p, 'start');
                     return;
                 }
-
 
                 if (!targetElem) {
                     return;
@@ -166,6 +173,7 @@ _e(function (E, $) {
             if (e.keyCode !== 13) {
                 return;
             }
+
             if (!handle) {
                 handle = function() {
                     self.wrapImgAndText();

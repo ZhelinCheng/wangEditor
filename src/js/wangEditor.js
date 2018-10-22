@@ -2281,22 +2281,29 @@ _e(function (E, $) {
             var $targetElem;
             var $pElem;
 
+
+            var divElem = $(targetElem).children('div');
+            if (divElem.prev('ol').length > 0 || divElem.prev('ul').length > 0) {
+              divElem.remove();
+              var $pLast = editor.$txt.find('p').last();
+              var pLast = $pLast.get(0);
+              editor.restoreSelectionByElem(pLast, 'start');
+            }
+
             if (!targetElem) {
                 // 没找到合法标签，就去查找 div
                 targetElem = editor.getSelfOrParentByName(rangeElem, 'div');
 
                 var targetImgElem = editor.getSelfOrParentByName(rangeElem, 'figure');
 
-                if (targetImgElem) {
+                if (targetImgElem && e.type === 'keydown') {
                     var $targetImgElem = $(targetImgElem);
                     $targetImgElem.children('figcaption').eq(1).remove();
                     var $p = editor.$txt.find('p').last();
                     var p = $p.get(0);
-                    console.log(p);
                     editor.restoreSelectionByElem(p, 'start');
                     return;
                 }
-
 
                 if (!targetElem) {
                     return;
@@ -2330,6 +2337,7 @@ _e(function (E, $) {
             if (e.keyCode !== 13) {
                 return;
             }
+
             if (!handle) {
                 handle = function() {
                     self.wrapImgAndText();
@@ -5122,7 +5130,7 @@ _e(function (E, $) {
 
                 if (/emoji/img.test(title)) {
                   var $span = $('<span>');
-                  $span.addClass('emoji');
+                  $span.addClass('ej-list');
                   $span.text(value);  // 先将 src 复制到 '_src' 属性，先不加载
                   $command.append($span);
                 } else {
@@ -5196,8 +5204,8 @@ _e(function (E, $) {
 
             if (emotionsShow === 'icon') {
                 // 插入图片
-              console.log(editor.command);
-                editor.command(e, 'InsertImage', commandValue);
+                // editor.command(e, 'InsertImage', commandValue);
+                editor.command(e, 'insertHtml', '<img src="'+ commandValue +'" class="ej-list-item" />');
             } else {
                 // 插入value
                 editor.command(e, 'insertHtml', '<span>' + commandValue + '</span>');
@@ -6575,10 +6583,16 @@ _e(function (E, $) {
             } else {
                 E.log('上传成功，即将插入编辑区域，结果为：' + resultText);
 
+                if (window.layer) {
+                  window.layer.msg('上传成功！');
+                }
+
+                resultText = JSON.parse(resultText);
+
                 // 将结果插入编辑器
                 img = document.createElement('img');
                 img.onload = function () {
-                    var html = '<img src="' + resultText + '" alt="' + originalName + '" style="max-width:100%;"/>';
+                    var html = '<figure class="img-box-'+ new Date().getTime() +'"><img src="' + resultText.data.img_url + '" alt="' + originalName + '" style="max-width:100%;"/><figcaption placeholder="添加图片注释（可选）"></figcaption></figure>';
                     editor.command(null, 'insertHtml', html);
 
                     E.log('已插入图片，地址 ' + resultText);
@@ -6588,7 +6602,7 @@ _e(function (E, $) {
                     E.error('使用返回的结果获取图片，发生错误。请确认以下结果是否正确：' + resultText);
                     img = null;
                 };
-                img.src = resultText;
+                img.src = resultText.data.img_url;
             }
 
         });

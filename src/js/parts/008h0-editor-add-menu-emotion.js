@@ -35,7 +35,7 @@ _e(function (E, $) {
 
                 if (/emoji/img.test(title)) {
                   var $span = $('<span>');
-                  $span.addClass('emoji');
+                  $span.addClass('ej-list');
                   $span.text(value);  // 先将 src 复制到 '_src' 属性，先不加载
                   $command.append($span);
                 } else {
@@ -109,8 +109,8 @@ _e(function (E, $) {
 
             if (emotionsShow === 'icon') {
                 // 插入图片
-              console.log(editor.command);
-                editor.command(e, 'InsertImage', commandValue);
+                // editor.command(e, 'InsertImage', commandValue);
+                editor.command(e, 'insertHtml', '<img src="'+ commandValue +'" class="ej-list-item" />');
             } else {
                 // 插入value
                 editor.command(e, 'insertHtml', '<span>' + commandValue + '</span>');
