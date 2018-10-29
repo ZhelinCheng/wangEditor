@@ -65,6 +65,13 @@ _e(function (E, $) {
             if (e.keyCode !== 8) {
                 return;
             }
+            var elem = editor.getRangeElem();
+            var $elem = $(elem);
+
+            if ($elem.get(0).tagName === 'FIGURE') {
+                $elem.remove();
+            }
+
             var txtHtml = $.trim($txt.html().toLowerCase());
             if (txtHtml === '<p><br></p>') {
                 // 如果最后还剩余一个空行，就不再继续删除了

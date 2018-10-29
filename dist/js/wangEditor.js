@@ -2229,6 +2229,13 @@ _e(function (E, $) {
             if (e.keyCode !== 8) {
                 return;
             }
+            var elem = editor.getRangeElem();
+            var $elem = $(elem);
+
+            if ($elem.get(0).tagName === 'FIGURE') {
+                $elem.remove();
+            }
+
             var txtHtml = $.trim($txt.html().toLowerCase());
             if (txtHtml === '<p><br></p>') {
                 // 如果最后还剩余一个空行，就不再继续删除了
@@ -5418,6 +5425,11 @@ _e(function (E, $) {
                 $urlInput.focus();
                 return;
             }
+            // editor.command(e, 'insertHtml', '<p><br></p>', callback);
+
+            var $pLast = editor.$txt.find('p').last();
+            var pLast = $pLast.get(0);
+            editor.restoreSelectionByElem(pLast, 'start');
 
             var imgHtml = '<figure class="img-box-'+ new Date().getTime() +'"><img src="'+ url +'" style="max-width:100%;" /><figcaption placeholder="添加图片注释（可选）"></figcaption></figure>';
             editor.command(e, 'insertHtml', imgHtml, callback);
@@ -5450,14 +5462,14 @@ _e(function (E, $) {
         var $linkInput = $('<input type="text" class="block" placeholder=\'格式如：<iframe src="..." frameborder=0 allowfullscreen></iframe>\'/>');
         $linkInputContainer.append($linkInput);
         var $sizeContainer = $('<div style="margin:20px 10px;"></div>');
-        var $widthInput = $('<input type="text" value="640" style="width:50px;text-align:center;"/>');
-        var $heightInput = $('<input type="text" value="498" style="width:50px;text-align:center;"/>');
-        $sizeContainer.append('<span> ' + lang.width + ' </span>')
+        var $widthInput = $('<input type="text" value="0" style="width:50px;text-align:center;"/>');
+        var $heightInput = $('<input type="text" value="0" style="width:50px;text-align:center;"/>');
+        /*$sizeContainer.append('<span> ' + lang.width + ' </span>')
                       .append($widthInput)
                       .append('<span> px &nbsp;&nbsp;&nbsp;</span>')
                       .append('<span> ' + lang.height + ' </span>')
                       .append($heightInput)
-                      .append('<span> px </span>');
+                      .append('<span> px  </span>');*/
         var $btnContainer = $('<div></div>');
         var $howToCopy = $('<a href="http://www.kancloud.cn/wangfupeng/wangeditor2/134973" target="_blank" style="display:inline-block;margin-top:10px;margin-left:10px;color:#999;">如何复制视频链接？</a>');
         var $btnSubmit = $('<button class="right">' + lang.submit + '</button>');
@@ -5476,6 +5488,7 @@ _e(function (E, $) {
         $btnSubmit.click(function (e) {
             e.preventDefault();
             var link = $.trim($linkInput.val());
+            link = link.replace('http:', 'https:');
             var $link;
             var width = parseInt($widthInput.val());
             var height = parseInt($heightInput.val());
@@ -5501,9 +5514,19 @@ _e(function (E, $) {
 
             $link = $(link);
 
+            if (height > 640 || width > 640) {
+                height = 0;
+                width = 0;
+            }
+
             // 设置高度和宽度
-            $link.attr('width', width)
-                 .attr('height', height);
+            if(width && height) {
+              $link.attr('width', width)
+                .attr('height', height);
+            } else {
+              $link.attr('width', '')
+                .attr('height', '');
+            }
 
             // 拼接字符串
             html = html.replace('{content}', $div.append($link).html());
@@ -7742,9 +7765,9 @@ _e(function (E, $) {
                             // .append($floatLeft)
                             // .append($noFloat)
                             // .append($floatRight);
-                            .append($alignLeft)
-                            .append($alignCenter)
-                            .append($alignRight)
+                            // .append($alignLeft)
+                            // .append($alignCenter)
+                            // .append($alignRight)
                             .append($link)
                             .append($unLink);
 
@@ -7788,10 +7811,9 @@ _e(function (E, $) {
             $delete.click(function (e) {
                 // 删除之前先unlink
                 imgLink(e, '');
-
                 // 删除图片
                 commandFn = function () {
-                    $currentImg.remove();
+                  $currentImg.parents('figure').remove();
                 };
                 customCommand(e, function () {
                     setTimeout(hide, 100);
@@ -7915,7 +7937,6 @@ _e(function (E, $) {
             // 显示链接input
             $link.click(function (e) {
                 e.preventDefault();
-
                 // 获取当前链接，并显示
                 currentLink = imgLink(e);
                 $linkInput.val(currentLink);
@@ -7930,6 +7951,7 @@ _e(function (E, $) {
                 var url = $.trim($linkInput.val());
                 if (url) {
                     // 设置链接，同时会自动更新 currentLink 的值
+                    if (!(/^http/.test(url))) { url = 'http://' + url; }
                     imgLink(e, url);
                 }
 

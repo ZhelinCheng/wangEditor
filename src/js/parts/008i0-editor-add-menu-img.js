@@ -161,6 +161,11 @@ _e(function (E, $) {
                 $urlInput.focus();
                 return;
             }
+            // editor.command(e, 'insertHtml', '<p><br></p>', callback);
+
+            var $pLast = editor.$txt.find('p').last();
+            var pLast = $pLast.get(0);
+            editor.restoreSelectionByElem(pLast, 'start');
 
             var imgHtml = '<figure class="img-box-'+ new Date().getTime() +'"><img src="'+ url +'" style="max-width:100%;" /><figcaption placeholder="添加图片注释（可选）"></figcaption></figure>';
             editor.command(e, 'insertHtml', imgHtml, callback);

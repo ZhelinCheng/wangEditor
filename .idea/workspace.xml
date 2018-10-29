@@ -6,8 +6,9 @@
       <change beforePath="$PROJECT_DIR$/dist/js/wangEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/wangEditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/js/wangEditor.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/wangEditor.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/parts/00261-T-fn-bind.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/parts/00261-T-fn-bind.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/parts/008h0-editor-add-menu-emotion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/parts/008h0-editor-add-menu-emotion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/parts/0p000-upload-img-fn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/parts/0p000-upload-img-fn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/parts/008i0-editor-add-menu-img.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/parts/008i0-editor-add-menu-img.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/parts/008j0-editor-add-menu-video.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/parts/008j0-editor-add-menu-video.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/parts/0p040-txt-img-toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/parts/0p040-txt-img-toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/wangEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/wangEditor.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,17 +24,17 @@
     <session id="-320541291">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="2" />
           <entry key="html" value="3" />
-          <entry key="js" value="60" />
+          <entry key="js" value="63" />
           <entry key="json" value="1" />
           <entry key="less" value="3" />
           <entry key="md" value="2" />
@@ -43,7 +44,7 @@
         <counts>
           <entry key="HTML" value="3" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="60" />
+          <entry key="JavaScript" value="63" />
           <entry key="Less" value="3" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
@@ -52,14 +53,14 @@
         <counts>
           <entry key="gitignore" value="10" />
           <entry key="html" value="40" />
-          <entry key="js" value="1131" />
+          <entry key="js" value="1773" />
           <entry key="less" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="40" />
-          <entry key="JavaScript" value="1131" />
+          <entry key="JavaScript" value="1773" />
           <entry key="Less" value="28" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
@@ -76,11 +77,62 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/parts/00261-T-fn-bind.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="125" column="44" lean-forward="true" selection-start-line="125" selection-start-column="44" selection-end-line="125" selection-end-column="44" />
+            <state relative-caret-position="285">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="e#103#1324#0" />
-                <element signature="e#1408#2385#0" />
+                <element signature="e#5036#5418#0" />
+                <element signature="e#5479#5939#0" />
+                <element signature="e#5997#14788#0" />
+                <element signature="e#14862#16146#0" />
+                <element signature="e#16206#17528#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/parts/008j0-editor-add-menu-video.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-237">
+              <caret line="32" column="54" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/parts/0p040-txt-img-toolbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="177" column="19" selection-start-line="177" selection-start-column="19" selection-end-line="177" selection-end-column="19" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+                <element signature="e#6428#6985#0" />
+                <element signature="e#7049#7606#0" />
+                <element signature="e#8061#8484#0" />
+                <element signature="e#8943#9368#0" />
+                <element signature="e#9825#10252#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/parts/008i0-editor-add-menu-img.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#figure#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,11 +155,15 @@
       <find>InsertImage</find>
       <find>回车</find>
       <find>insertEmotionImgs</find>
-      <find>figure</find>
       <find>列表</find>
       <find>orderlist</find>
       <find>enter</find>
       <find>divHandler</find>
+      <find>wangeditor-menu-img-align-left</find>
+      <find>http://</find>
+      <find>px</find>
+      <find>删除</find>
+      <find>figure</find>
     </findStrings>
     <dirStrings>
       <dir>E:\GitHub\wangEditor\src\js\parts</dir>
@@ -131,11 +187,13 @@
         <option value="$PROJECT_DIR$/dist/js/wangEditor.js" />
         <option value="$PROJECT_DIR$/src/css/parts/041-txt-content.less" />
         <option value="$PROJECT_DIR$/src/js/parts/00203-E-fn-selection.js" />
-        <option value="$PROJECT_DIR$/src/js/parts/008i0-editor-add-menu-img.js" />
         <option value="$PROJECT_DIR$/test/index.html" />
         <option value="$PROJECT_DIR$/src/js/parts/00205-E-fn-command.js" />
         <option value="$PROJECT_DIR$/src/js/parts/008h0-editor-add-menu-emotion.js" />
         <option value="$PROJECT_DIR$/src/js/parts/0p000-upload-img-fn.js" />
+        <option value="$PROJECT_DIR$/src/js/parts/008i0-editor-add-menu-img.js" />
+        <option value="$PROJECT_DIR$/src/js/parts/008j0-editor-add-menu-video.js" />
+        <option value="$PROJECT_DIR$/src/js/parts/0p040-txt-img-toolbar.js" />
         <option value="$PROJECT_DIR$/src/js/parts/00261-T-fn-bind.js" />
       </list>
     </option>
@@ -168,6 +226,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,12 +284,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/Project/cdkey_store" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="D:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -260,18 +318,18 @@
       <updated>1539757302824</updated>
       <workItem from="1539757305213" duration="11720000" />
       <workItem from="1539850340532" duration="6924000" />
-      <workItem from="1540175601536" duration="2617000" />
+      <workItem from="1540175601536" duration="3460000" />
+      <workItem from="1540204766775" duration="12440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21261000" />
+    <option name="totallyTimeSpent" value="34544000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.23867229" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.23867229" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" sideWeight="0.5016026" side_tool="true" weight="0.23867229" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -286,7 +344,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50052685" side_tool="true" weight="0.32975295" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49947312" visible="true" weight="0.32975295" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49947312" visible="true" weight="0.32867885" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -414,17 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/parts/008i0-editor-add-menu-img.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="161" column="23" selection-start-line="161" selection-start-column="23" selection-end-line="161" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#figure#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/parts/01020-event-txt.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -492,13 +539,58 @@
         <state relative-caret-position="-129" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/parts/008i0-editor-add-menu-img.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#figure#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/parts/008j0-editor-add-menu-video.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-237">
+          <caret line="32" column="54" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/parts/0p040-txt-img-toolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="177" column="19" selection-start-line="177" selection-start-column="19" selection-end-line="177" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+            <element signature="e#6428#6985#0" />
+            <element signature="e#7049#7606#0" />
+            <element signature="e#8061#8484#0" />
+            <element signature="e#8943#9368#0" />
+            <element signature="e#9825#10252#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/parts/00261-T-fn-bind.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="125" column="44" lean-forward="true" selection-start-line="125" selection-start-column="44" selection-end-line="125" selection-end-column="44" />
+        <state relative-caret-position="285">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="e#103#1324#0" />
-            <element signature="e#1408#2385#0" />
+            <element signature="e#5036#5418#0" />
+            <element signature="e#5479#5939#0" />
+            <element signature="e#5997#14788#0" />
+            <element signature="e#14862#16146#0" />
+            <element signature="e#16206#17528#0" />
           </folding>
         </state>
       </provider>

@@ -123,9 +123,9 @@ _e(function (E, $) {
                             // .append($floatLeft)
                             // .append($noFloat)
                             // .append($floatRight);
-                            .append($alignLeft)
-                            .append($alignCenter)
-                            .append($alignRight)
+                            // .append($alignLeft)
+                            // .append($alignCenter)
+                            // .append($alignRight)
                             .append($link)
                             .append($unLink);
 
@@ -169,10 +169,9 @@ _e(function (E, $) {
             $delete.click(function (e) {
                 // 删除之前先unlink
                 imgLink(e, '');
-
                 // 删除图片
                 commandFn = function () {
-                    $currentImg.remove();
+                  $currentImg.parents('figure').remove();
                 };
                 customCommand(e, function () {
                     setTimeout(hide, 100);
@@ -296,7 +295,6 @@ _e(function (E, $) {
             // 显示链接input
             $link.click(function (e) {
                 e.preventDefault();
-
                 // 获取当前链接，并显示
                 currentLink = imgLink(e);
                 $linkInput.val(currentLink);
@@ -311,6 +309,7 @@ _e(function (E, $) {
                 var url = $.trim($linkInput.val());
                 if (url) {
                     // 设置链接，同时会自动更新 currentLink 的值
+                    if (!(/^http/.test(url))) { url = 'http://' + url; }
                     imgLink(e, url);
                 }
 
